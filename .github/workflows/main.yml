@@ -24,8 +24,7 @@ jobs:
         cache: maven
     - name: Clone
       run: git clone https://github.com/Alluxio/alluxio
-    - name: Change Directory
-      run: cd alluxio
+    - run: cd alluxio
     - name: github fix
       run: mvn install -N
     - name: Build with Maven
