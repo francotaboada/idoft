@@ -6,8 +6,6 @@ name: Java CI with Maven
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   build:
@@ -15,13 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
     - name: Set up JDK 8
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v1
       with:
-        java-version: '8'
-        distribution: 'temurin'
-        cache: maven
+        java-version: 1.8
+
     - name: Clone
       run: git clone https://github.com/Alluxio/alluxio
     - run: cd alluxio
