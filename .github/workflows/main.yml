@@ -25,10 +25,14 @@ jobs:
     - name: Clone
       run: git clone https://github.com/Alluxio/alluxio
     - run: cd alluxio
-    - name: github fix
-      run: mvn install -N
+    
+    - name: Checkout latest commit
+      uses: actions/checkout@v3
+      with:
+        repository: Alluxio/alluxio
+        ref: 68fcda9dd2ca2181eb897e10ca02fa5bc3a3099f
     - name: Build with Maven
-      run: mvn test-compile -pl core/server/worker -am
+      run: mvn clean install -DskipTests -pl core/server/worker -am
     - name: Test without NonDex
       run: mvn -pl core/server/worker test -Dtest=alluxio.worker.block.BlockStoreMetaTest#getBlockList
     - name: Flaky Testing
