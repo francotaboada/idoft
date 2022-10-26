@@ -27,7 +27,7 @@ jobs:
     - name: Change Directory
       run: cd alluxio
     - name: Build with Maven
-      run: mvn clean install -DskipTests -pl core/server/worker -am
+      run: mvn clean install -DskipTests -pl core/server/worker -amd
     - name: Test without NonDex
       run: mvn -pl core/server/worker test -Dtest=alluxio.worker.block.BlockStoreMetaTest#getBlockList
     - name: Flaky Testing
