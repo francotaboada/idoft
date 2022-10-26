@@ -27,11 +27,9 @@ jobs:
     - name: Change Directory
       run: cd alluxio
     - name: print latest commit
-      run: git rev-parse HEAD
+      run: git checkout 68fcda9dd2ca2181eb897e10ca02fa5bc3a3099f
     - name: Build with Maven
-      run: mvn clean
-    - name: Separate install
-      run: mvn install -DskipTests -pl core/server/worker -am
+      run: mvn clean install -DskipTests -pl core/server/worker -am
     - name: Test without NonDex
       run: mvn -pl core/server/worker test -Dtest=alluxio.worker.block.BlockStoreMetaTest#getBlockList
     - name: Flaky Testing
