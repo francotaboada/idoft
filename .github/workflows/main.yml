@@ -26,6 +26,8 @@ jobs:
       run: git clone https://github.com/Alluxio/alluxio
     - name: Change Directory
       run: cd alluxio
+    - name: Checkout
+      run: git checkout 68fcda9dd2ca2181eb897e10ca02fa5bc3a3099f
     - name: Build with Maven
       run: mvn clean install -DskipTests -pl core/server/worker -am
     - name: Test without NonDex
